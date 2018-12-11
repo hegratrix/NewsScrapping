@@ -1,40 +1,21 @@
-const cheerio = require('cheerio')
-const inquirer = require('inquirer')
+const express = require('express')
+const logger = require('morgan')
+const mongoose = require('mongoose')
+const bodyparser = require('body-parser')
 const axios = require('axios')
-const mongo = require('mongojs')
+const cheerio = require('cheerio')
+const path = require('path')
 
-console.log('Hello!')
-console.log('Where would you like to go in Reddit?')
-pickCategory()
+const db = require('./models')
+const app = express()
+mongoose.connect('mongodb://localhost/articles', {
+    useNewUrlParser: true })
 
-function pickCategory() {
-    inquirer.prompt([
-        {
-            name: "category",
-            message: "Please pick a subReddit."
-        }
-    ]).then(function(answer) {
-        let choice = answer.category
-        console.log(choice)
-        showResults(choice)
-    })
-}
+app.use(logger('dev'))
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(bodyparser.urlencoded({ extended: true }))
+app.use(bodyparser.json())
 
-function showResults(choice) {
-    axios.get(`https://www.reddit.com/r/${choice}`)
-        .then(r => {
-            const $ = cheerio.load(r.data)
-            $('.scrollerItem h2').each((i, elem) => {
-                if (i <= 4) {
-                    const db = mongo('reddit')
-                    db.subReddit.insert({'title': `${$(elem).text()}`})
-                    console.log(`
-                        Post #${i+1}
-                        ${$(elem).text()}
-                    `)
-                }
+require('./routes')(app)
 
-            })
-        })
-        .catch(e => console.log(e))
-}
+app.listen(3000, _ => console.log('http://localhost3000'))
