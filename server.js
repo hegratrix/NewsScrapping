@@ -4,13 +4,9 @@ const mongoose = require('mongoose')
 const bodyparser = require('body-parser')
 const path = require('path')
 
-mongoose.set('useCreateIndex', true)
 const app = express()
-// var MONGODB_URI = "mongodb://hegratrix:uciRocks18@ds259154.mlab.com:59154"
-mongoose.connect(
-    "mongodb://hegratrix:uciRocks18@ds259154.mlab.com:59154",
-    { useNewUrlParser: true }
-)
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines"
+mongoose.connect(MONGODB_URI)
 
 app.use(logger('dev'))
 app.use(express.static(path.join(__dirname, 'public')))
