@@ -16,4 +16,4 @@ app.use(bodyparser.json())
 
 require('./routes')(app)
 
-app.listen(3000, _ => console.log('http://localhost3000'))
+app.listen(process.env.PORT || 3000)
