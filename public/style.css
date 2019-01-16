@@ -1,0 +1,121 @@
+.card-div {
+    width: 20%;
+}
+
+.card {
+    width: 22%;
+    color: white;
+    background-color: black;
+}
+
+#articles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;    
+}
+
+body {
+    background-image: url('./images/background.jpg');
+    background-size: cover;
+}
+
+/* .card {
+    align-self: center;
+} */
+
+.card .card-image .card-title {
+    font-size: 20px;
+    position: relative;
+    padding: 0;
+    padding-left: 18px;
+}
+
+.btn-floating i {
+    background-color: #039be5;
+    font-size: 1rem;
+}
+
+.card .card-content p {    
+    font-size: 19px;
+}
+
+.subreddit {
+    color: #039be5;
+    text-align: right;
+    font-size: 10px;
+}
+
+#title {
+    text-align: center;
+    color: white;
+    font-family: 'Spicy Rice', cursive;
+    font-size: 3.5rem;
+}
+
+#button-div {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    margin: 5px;
+    padding: 5px;
+}
+
+#header {
+    text-align: center;
+    color: darkblue;
+    font-family: 'Spicy Rice', cursive;
+    font-size: 3rem;
+}
+
+#saved-button-div a{
+    margin: 2px;
+    position: relative;
+    float: right;
+    bottom: 0;
+    right: 23px;
+    margin: 4px;
+}
+
+#saved-button-div {
+    position: relative;
+    top: -46px;
+}
+
+.modal {
+    z-index: 2;
+    top: 180px;
+}
+
+textarea {
+    height: 7rem;
+}
+
+button.close {
+    padding: 0;
+    font-size: 20px;
+    position: absolute;
+    color: #26a69a;
+    top: 6px;
+    right: 26px;
+    background-color: transparent;
+}
+
+.notecard {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    text-align: center;    
+    align-self: center;
+}
+
+#noteTitle {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.modal2 {
+    width: 40%;
+    text-align: center;
+}
