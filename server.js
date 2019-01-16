@@ -2,14 +2,12 @@ const express = require('express')
 const logger = require('morgan')
 const mongoose = require('mongoose')
 const bodyparser = require('body-parser')
-const axios = require('axios')
-const cheerio = require('cheerio')
 const path = require('path')
 
 const db = require('./models')
 const app = express()
-mongoose.connect('mongodb://localhost/articles', {
-    useNewUrlParser: true })
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/articles"
+mongoose.connect(MONGODB_URI)
 
 app.use(logger('dev'))
 app.use(express.static(path.join(__dirname, 'public')))
