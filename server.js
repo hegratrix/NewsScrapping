@@ -8,7 +8,7 @@ mongoose.set('useCreateIndex', true)
 const app = express()
 // var MONGODB_URI = "mongodb://hegratrix:uciRocks18@ds259154.mlab.com:59154"
 mongoose.connect(
-    "mongodb://localhost/test",
+    "mongodb://hegratrix:uciRocks18@ds259154.mlab.com:59154",
     { useNewUrlParser: true }
 )
 
