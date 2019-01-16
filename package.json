@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/hegratrix/scrapping/issues"
   },
-  "homepage": "https://dry-cliffs-72923.herokuapp.com/",
+  "homepage": "https://pure-wildwood-87506.herokuapp.com/",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
